@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.table
+{
+  margin-top:1%;
+  margin-left: 32%;
+}
+.button
+{
+    background-color: white;
+    border-color: black;
+    padding: 15px 32px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+</style>
+</head>
+<body>
+
+<h1 style="margin-top:10%;margin-left: 38%;">Simple Math Quiz!</h1>
+<table class="table">
+
+    <tr>
+      <td>
+        <button class="button" id="int_add">Integer Addition</button>
+      </td>
+      <td>
+        <button class="button" id="int_sub">Integer Subtraction</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="button" id="float_add">Float Addition</button>
+      </td>
+      <td>
+        <button class="button" id="float_sub">Float Subtraction</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="button" id="comp_add">Complex Addition</button>
+      </td>
+      <td>
+        <button class="button" id="comp_sub">Complex Subtraction</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="button" id="chk_scr">Check Score</button>
+      </td>
+      <td>
+        <button class="button" id="reset_scr">Reset Score</button>
+      </td>
+    </tr>
+</table>
+<p id="demo"></p>
+</body>
+
+
+
+
+<script type="text/javascript">
+  var no_questions=0;
+  var no_correct_ans=0;
+  var no_incorrect_ans=0;
+
+  //Integer Addition
+  document.getElementById("int_add").onclick = function ()
+  {
+    var msg,ans;
+    var x = Math.floor(Math.random() * 9) + 1;
+    var y = Math.floor(Math.random() * 9) + 1;
+    msg=x + "+" + y;
+    ans=window.prompt(msg);
+    if(ans!=null)
+    {
+      no_questions+=1;
+      correct_ans=x+y;
+      if(ans==correct_ans)
+      {
+        no_correct_ans+=1;
+        alert("Correct answer.\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+      else
+      {
+        no_incorrect_ans+=1;
+        alert("Wrong answer.\nCorrect answer="+correct_ans+"\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+    }
+    else
+    {
+      alert("Please enter answer.");
+    }
+  };
+
+  //Integer Subtraction
+  document.getElementById("int_sub").onclick = function ()
+  {
+    var msg,ans;
+    var x = Math.floor(Math.random() * 9) + 1;
+    var y = Math.floor(Math.random() * 9) + 1;
+    msg=x + "-" + y;
+    ans=window.prompt(msg);
+    if(ans!=null)
+    {
+      no_questions+=1;
+      correct_ans=x-y;
+      if(ans==correct_ans)
+      {
+        no_correct_ans+=1;
+        alert("Correct answer.\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+      else
+      {
+        no_incorrect_ans+=1;
+        alert("Wrong answer.\nCorrect answer="+correct_ans+"\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+    }
+    else
+    {
+      alert("Please enter answer.");
+    }
+  };
+
+  //Float Addition
+  document.getElementById("float_add").onclick = function ()
+  {
+    var msg,ans;
+    //generate random x1 and x2
+    var x1 = Math.floor(Math.random() * 9) + 1;
+    var x2 = Math.floor(Math.random() * 9) + 1;
+
+    //generate random y1 and y2
+    var y1 = Math.floor(Math.random() * 9) + 1;
+    var y2 = Math.floor(Math.random() * 9) + 1;
+
+    var x = "" + x1 + "." + x2;
+    var y = "" + y1 + "." + y2;
+
+    var float_x = parseFloat(x);
+    var float_y = parseFloat(y);
+
+    msg=float_x + "+" + float_y;
+    ans=window.prompt(msg);
+    if(ans!=null)
+    {
+      no_questions+=1;
+      correct_ans=float_x+float_y;
+      precision_correct_ans=correct_ans.toFixed(1);
+      if(ans==precision_correct_ans)
+      {
+        no_correct_ans+=1;
+        alert("Correct answer.\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+      else
+      {
+        no_incorrect_ans+=1;
+        alert("Wrong answer.\nCorrect answer="+precision_correct_ans+"\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+    }
+    else
+    {
+      alert("Please enter answer.");
+    }
+  };
+
+  //Float Subtraction
+  document.getElementById("float_sub").onclick = function ()
+  {
+    var msg,ans;
+
+    //generate random x1 and x2
+    var x1 = Math.floor(Math.random() * 9) + 1;
+    var x2 = Math.floor(Math.random() * 9) + 1;
+
+    //generate random y1 and y2
+    var y1 = Math.floor(Math.random() * 9) + 1;
+    var y2 = Math.floor(Math.random() * 9) + 1;
+
+    var x = "" + x1 + "." + x2;
+    var y = "" + y1 + "." + y2;
+
+    var float_x = parseFloat(x);
+    var float_y = parseFloat(y);
+
+    msg=float_x + "-" + float_y;
+    ans=window.prompt(msg);
+    if(ans!=null)
+    {
+      no_questions+=1;
+      correct_ans=float_x - float_y;
+      precision_correct_ans=correct_ans.toFixed(1);
+      if(ans==precision_correct_ans)
+      {
+        no_correct_ans+=1;
+        alert("Correct answer.\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+      else
+      {
+        no_incorrect_ans+=1;
+        alert("Wrong answer.\nCorrect answer="+precision_correct_ans+"\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+    }
+    else
+    {
+      alert("Please enter answer.");
+    }
+  };
+  document.getElementById("comp_add").onclick = function ()
+  {
+    //generate random number-1
+    var n1_real = Math.floor(Math.random() * 9) + 1;
+    var n1_imaginary = Math.floor(Math.random() * 9) + 1;
+
+    //generate random number-2
+    var n2_real = Math.floor(Math.random() * 9) + 1;
+    var n2_imaginary = Math.floor(Math.random() * 9) + 1;
+
+    var real = n1_real + n2_real;
+    var imaginary = n1_imaginary + n2_imaginary;
+    var correct_ans=real + "+" +imaginary +"i";
+    // alert("correct_ans="+correct_ans);
+
+    var msg = "(" + n1_real + "+" +n1_imaginary+ "i) + (" + n2_real + "+" +n2_imaginary+ "i)";
+    ans=window.prompt(msg);
+
+    if(ans!=null)
+    {
+      no_questions+=1;
+      if(ans==correct_ans)
+      {
+        no_correct_ans+=1;
+        alert("Correct answer.\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+      else
+      {
+        no_incorrect_ans+=1;
+        alert("Wrong answer.\nCorrect answer="+correct_ans+"\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+    }
+    else
+    {
+      alert("Please enter answer.");
+    }
+
+  };
+  document.getElementById("comp_sub").onclick = function ()
+  {
+    //generate random number-1
+    var n1_real = Math.floor(Math.random() * 9) + 1;
+    var n1_imaginary = Math.floor(Math.random() * 9) + 1;
+
+    //generate random number-2
+    var n2_real = Math.floor(Math.random() * 9) + 1;
+    var n2_imaginary = Math.floor(Math.random() * 9) + 1;
+
+    var real = n1_real - n2_real;
+    var imaginary = n1_imaginary - n2_imaginary;
+    if(imaginary < 0)
+    {
+      var correct_ans=real + "" +imaginary +"i";
+    }
+    else
+    {
+        var correct_ans=real + "-" +imaginary +"i";
+    }
+
+    // alert("correct_ans="+correct_ans);
+
+    var msg = "(" + n1_real + "+" +n1_imaginary+ "i) - (" + n2_real + "+" +n2_imaginary+ "i)";
+    ans=window.prompt(msg);
+
+    if(ans!=null)
+    {
+      no_questions+=1;
+      if(ans==correct_ans)
+      {
+        no_correct_ans+=1;
+        alert("Correct answer.\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+      else
+      {
+        no_incorrect_ans+=1;
+        alert("Wrong answer.\nCorrect answer="+correct_ans+"\nTotal:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+      }
+    }
+    else
+    {
+      alert("Please enter answer.");
+    }
+
+  };
+  document.getElementById("reset_scr").onclick = function ()
+  {
+    no_questions=0;
+    no_correct_ans=0;
+    no_incorrect_ans=0;
+    alert("Score is reset successfully.");
+  }
+
+  document.getElementById("chk_scr").onclick = function ()
+  {
+    alert("Total:" +no_questions+"\nCorrect="+no_correct_ans+"\nWrong="+no_incorrect_ans);
+  }
+
+
+</script>
+
+
+
+
+</html>
