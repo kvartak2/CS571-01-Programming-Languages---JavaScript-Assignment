@@ -1,6 +1,9 @@
 - The name and the email address of group members
   Kasturi Vartak
   kvartak2@binghamton.edu
+  
+  Onkar Kulkarni
+  okulkar4@binghamton.edu
 
 - How to execute your program.
   open quiz.html in a browser(For example : Safari)
